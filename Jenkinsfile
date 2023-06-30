@@ -1,9 +1,7 @@
 pipeline {
-
     agent any
 
     stages {
-
         stage('Installing Dependencies') {
             steps {
                 script {
@@ -24,7 +22,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'echo "Build Docker Image..."'
-                sh 'docker build -t xaivntaaj/react-docker-jenkins:1.0'
+                sh 'docker build -t xaivntaaj/react-docker-jenkins:1.0 .'
             }
         }
 
@@ -42,7 +40,5 @@ pipeline {
                 sh 'docker push xaivntaaj/react-docker-jenkins:1.0'
             }
         }
-
-
     }
 }
