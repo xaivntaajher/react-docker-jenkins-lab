@@ -22,7 +22,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'echo "Build Docker Image..."'
-                sh "'docker build -t xaivntaaj/react-docker-jenkins:${TAG} .'"
+                sh 'docker build -t xaivntaaj/react-docker-jenkins:lastest.'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                     sh "docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}"
                 }
 
-                sh "'docker push xaivntaaj/react-docker-jenkins:${TAG}'"
+                sh 'docker push xaivntaaj/react-docker-jenkins:latest'
             }
         }
     }
